@@ -1,0 +1,196 @@
+import type { User, Player, Team, Tournament } from '../types/index.ts';
+
+// 👤 Usuários mockados
+export const mockUsers: User[] = [
+  {
+    id: 'user-1',
+    name: 'Carlos Silva',
+    email: 'carlos@email.com',
+    avatar: 'https://i.pravatar.cc/150?img=12',
+    role: 'capitao',
+  },
+  {
+    id: 'user-2',
+    name: 'Ana Santos',
+    email: 'ana@email.com',
+    avatar: 'https://i.pravatar.cc/150?img=5',
+    role: 'organizador',
+  },
+  {
+    id: 'user-3',
+    name: 'Pedro Costa',
+    email: 'pedro@email.com',
+    avatar: 'https://i.pravatar.cc/150?img=33',
+    role: 'jogador',
+  },
+];
+
+// 🎮 Jogadores mockados
+export const mockPlayers: Player[] = [
+  { id: 'p1', name: 'Gabriel Lima', nickname: 'GabiLOL', position: 'Top', avatar: 'https://i.pravatar.cc/150?img=8' },
+  { id: 'p2', name: 'Lucas Almeida', nickname: 'Jungle King', position: 'Jungle', avatar: 'https://i.pravatar.cc/150?img=11' },
+  { id: 'p3', name: 'Rafael Souza', nickname: 'MidGod', position: 'Mid', avatar: 'https://i.pravatar.cc/150?img=13' },
+  { id: 'p4', name: 'Felipe Rocha', nickname: 'ADC Pro', position: 'ADC', avatar: 'https://i.pravatar.cc/150?img=15' },
+  { id: 'p5', name: 'Matheus Dias', nickname: 'SupportGG', position: 'Support', avatar: 'https://i.pravatar.cc/150?img=18' },
+  
+  { id: 'p6', name: 'João Pedro', nickname: 'JP9', position: 'Atacante', avatar: 'https://i.pravatar.cc/150?img=20' },
+  { id: 'p7', name: 'Diego Santos', nickname: 'Di10', position: 'Meio-campo', avatar: 'https://i.pravatar.cc/150?img=22' },
+  { id: 'p8', name: 'Bruno Silva', nickname: 'Brunão', position: 'Zagueiro', avatar: 'https://i.pravatar.cc/150?img=25' },
+  { id: 'p9', name: 'Thiago Costa', nickname: 'Thi1', position: 'Goleiro', avatar: 'https://i.pravatar.cc/150?img=28' },
+  
+  { id: 'p10', name: 'Mariana Oliveira', nickname: 'Mari', position: 'Saque', avatar: 'https://i.pravatar.cc/150?img=32' },
+  { id: 'p11', name: 'Juliana Martins', nickname: 'Ju', position: 'Rede', avatar: 'https://i.pravatar.cc/150?img=47' },
+];
+
+// 🏆 Times mockados
+export const mockTeams: Team[] = [
+  {
+    id: 'team-1',
+    name: 'Legends United',
+    logo: '🎮',
+    sport: 'lol',
+    captainId: 'user-1',
+    players: mockPlayers.slice(0, 5),
+    wins: 12,
+    losses: 3,
+    createdAt: new Date('2024-01-15'),
+  },
+  {
+    id: 'team-2',
+    name: 'Dragões FC',
+    logo: '⚽',
+    sport: 'futebol',
+    captainId: 'user-3',
+    players: mockPlayers.slice(5, 9),
+    wins: 8,
+    losses: 2,
+    createdAt: new Date('2024-02-10'),
+  },
+  {
+    id: 'team-3',
+    name: 'Beach Warriors',
+    logo: '🏐',
+    sport: 'beach-tennis',
+    captainId: 'user-1',
+    players: mockPlayers.slice(9, 11),
+    wins: 5,
+    losses: 1,
+    createdAt: new Date('2024-03-01'),
+  },
+  {
+    id: 'team-4',
+    name: 'Cyber Sharks',
+    logo: '🦈',
+    sport: 'lol',
+    captainId: 'user-3',
+    players: [
+      { id: 'p12', name: 'André Martins', nickname: 'TopShark', position: 'Top', avatar: 'https://i.pravatar.cc/150?img=51' },
+      { id: 'p13', name: 'Ricardo Lima', nickname: 'JungleShark', position: 'Jungle', avatar: 'https://i.pravatar.cc/150?img=52' },
+      { id: 'p14', name: 'Paulo Souza', nickname: 'MidShark', position: 'Mid', avatar: 'https://i.pravatar.cc/150?img=53' },
+      { id: 'p15', name: 'Vinicius Rocha', nickname: 'ADCShark', position: 'ADC', avatar: 'https://i.pravatar.cc/150?img=54' },
+      { id: 'p16', name: 'Rodrigo Dias', nickname: 'SuppShark', position: 'Support', avatar: 'https://i.pravatar.cc/150?img=55' },
+    ],
+    wins: 10,
+    losses: 4,
+    createdAt: new Date('2024-01-20'),
+  },
+];
+
+// 🏅 Torneios mockados
+export const mockTournaments: Tournament[] = [
+  {
+    id: 'tour-1',
+    name: 'Copa Invernal de League of Legends 2025',
+    description: 'Campeonato eliminatório simples com premiação em dinheiro. Participe e mostre suas habilidades!',
+    sport: 'lol',
+    status: 'inscricoes-abertas',
+    bracketType: 'eliminacao-simples',
+    maxTeams: 16,
+    currentTeams: 8,
+    prize: 'R$ 5.000',
+    startDate: new Date('2025-11-01'),
+    endDate: new Date('2025-11-15'),
+    registrationDeadline: new Date('2025-10-25'),
+    organizerId: 'user-2',
+    banner: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800',
+    rules: [
+      'Times de 5 jogadores + 1 reserva',
+      'Partidas em melhor de 3 (MD3)',
+      'Patch mais recente do jogo',
+      'Proibido uso de scripts ou hacks',
+    ],
+    teams: [mockTeams[0], mockTeams[3]],
+  },
+  {
+    id: 'tour-2',
+    name: 'Campeonato Regional de Futebol Society',
+    description: 'Torneio de pontos corridos com as melhores equipes da região. Vaga para a final estadual!',
+    sport: 'futebol',
+    status: 'em-andamento',
+    bracketType: 'pontos-corridos',
+    maxTeams: 12,
+    currentTeams: 12,
+    prize: 'Troféu + Vaga para Estadual',
+    startDate: new Date('2025-10-15'),
+    endDate: new Date('2025-12-20'),
+    registrationDeadline: new Date('2025-10-10'),
+    organizerId: 'user-2',
+    banner: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800',
+    rules: [
+      'Times de 7 jogadores (6 + goleiro)',
+      'Partidas de 40 minutos (2x 20min)',
+      'Cartões vermelhos = suspensão automática',
+      'Uniformes obrigatórios',
+    ],
+    teams: [mockTeams[1]],
+  },
+  {
+    id: 'tour-3',
+    name: 'Circuito Beach Tennis Verão 2025',
+    description: 'Duplas competindo em formato de chaves eliminatórias. Inscrições abertas para todos os níveis!',
+    sport: 'beach-tennis',
+    status: 'inscricoes-abertas',
+    bracketType: 'grupos-eliminatorias',
+    maxTeams: 8,
+    currentTeams: 3,
+    prize: 'R$ 2.000 + Kit esportivo',
+    startDate: new Date('2025-11-10'),
+    endDate: new Date('2025-11-12'),
+    registrationDeadline: new Date('2025-11-05'),
+    organizerId: 'user-2',
+    banner: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800',
+    rules: [
+      'Duplas (2 jogadores)',
+      'Formato de melhor de 3 sets',
+      'Equipamentos próprios',
+      'Nível iniciante/intermediário',
+    ],
+    teams: [mockTeams[2]],
+  },
+  {
+    id: 'tour-4',
+    name: 'Liga Pro de LoL - Temporada 1',
+    description: 'Competição de alto nível com transmissão ao vivo. Apenas times com ELO mínimo Diamante.',
+    sport: 'lol',
+    status: 'finalizado',
+    bracketType: 'eliminacao-dupla',
+    maxTeams: 16,
+    currentTeams: 16,
+    prize: 'R$ 10.000',
+    startDate: new Date('2025-08-01'),
+    endDate: new Date('2025-09-30'),
+    registrationDeadline: new Date('2025-07-25'),
+    organizerId: 'user-2',
+    banner: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800',
+    rules: [
+      'ELO mínimo: Diamante 4',
+      'Partidas em melhor de 5 (MD5) nas finais',
+      'Transmissão oficial no Twitch',
+      'Prêmio distribuído: 1º, 2º e 3º lugar',
+    ],
+    teams: [mockTeams[0], mockTeams[3]],
+  },
+];
+
+// 🎯 Usuário logado padrão (simulação)
+export const currentUser: User = mockUsers[0];
